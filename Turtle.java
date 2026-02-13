@@ -41,7 +41,7 @@ public class Turtle implements Runnable, ActionListener, MouseListener, MouseMot
      */
     public static void main(String[] args)
     {
-        // ===== GALAXY SPIRAL (ใหญ่กลางภาพ) =====
+        // 1
         Turtle galaxy = new Turtle();
         Thread t1 = new Thread(() -> {
             galaxy.speed(20);
@@ -50,11 +50,11 @@ public class Turtle implements Runnable, ActionListener, MouseListener, MouseMot
 
             for(int i = 0; i < 400; i++) {
                 galaxy.forward(i * 0.5);
-                galaxy.left(59);   // มุมแปลก ๆ จะได้ลายสวย
+                galaxy.left(59);   
             }
         });
 
-        // ===== GLOWING STAR =====
+        // 2
         Turtle star = new Turtle();
         Thread t2 = new Thread(() -> {
             star.speed(20);
@@ -73,7 +73,7 @@ public class Turtle implements Runnable, ActionListener, MouseListener, MouseMot
             }
         });
 
-        // ===== ORBITING TRIANGLE =====
+        // 3
         Turtle orbit = new Turtle();
         Thread t3 = new Thread(() -> {
             orbit.speed(20);
