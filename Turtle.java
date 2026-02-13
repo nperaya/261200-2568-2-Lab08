@@ -41,52 +41,51 @@ public class Turtle implements Runnable, ActionListener, MouseListener, MouseMot
      */
     public static void main(String[] args)
     {
-        // 1
-        Turtle starTurtle = new Turtle();
+        // ===== GALAXY SPIRAL (ใหญ่กลางภาพ) =====
+        Turtle galaxy = new Turtle();
         Thread t1 = new Thread(() -> {
-            starTurtle.penColor("blue");
-            starTurtle.width(3);
-            starTurtle.speed(20);
-            starTurtle.up();
-            starTurtle.left(90);
-            starTurtle.forward(150);
-            starTurtle.right(90);
-            starTurtle.down();
+            galaxy.speed(20);
+            galaxy.penColor("purple");
+            galaxy.width(2);
 
-            for(int i = 0; i < 5; i++) {
-                starTurtle.forward(150);
-                starTurtle.right(144);  
+            for(int i = 0; i < 400; i++) {
+                galaxy.forward(i * 0.5);
+                galaxy.left(59);   // มุมแปลก ๆ จะได้ลายสวย
             }
         });
 
-        // 2
-        Turtle spiralTurtle = new Turtle();
+        // ===== GLOWING STAR =====
+        Turtle star = new Turtle();
         Thread t2 = new Thread(() -> {
-            spiralTurtle.penColor("green");
-            spiralTurtle.width(2);
-            spiralTurtle.speed(20);
+            star.speed(20);
+            star.penColor("yellow");
+            star.width(2);
+            star.up();
+            star.left(90);
+            star.forward(200);
+            star.right(90);
+            star.down();
 
-            for(int i = 0; i < 200; i++) {
-                spiralTurtle.forward(i * 0.8);
-                spiralTurtle.left(20);
+            for(int i = 0; i < 36; i++) {
+                star.forward(150);
+                star.backward(150);
+                star.left(10);
             }
         });
 
-        // 3
-        Turtle triangleTurtle = new Turtle();
+        // ===== ORBITING TRIANGLE =====
+        Turtle orbit = new Turtle();
         Thread t3 = new Thread(() -> {
-            triangleTurtle.penColor("red");
-            triangleTurtle.width(4);
-            triangleTurtle.speed(20);
-            triangleTurtle.up();
-            triangleTurtle.right(90);
-            triangleTurtle.forward(150);
-            triangleTurtle.left(90);
-            triangleTurtle.down();
+            orbit.speed(20);
+            orbit.penColor("cyan");
+            orbit.width(2);
 
-            for(int i = 0; i < 3; i++) {
-                triangleTurtle.forward(200);
-                triangleTurtle.left(120);   
+            for(int j = 0; j < 12; j++) {
+                for(int i = 0; i < 3; i++) {
+                    orbit.forward(120);
+                    orbit.left(120);
+                }
+                orbit.left(30);
             }
         });
 
